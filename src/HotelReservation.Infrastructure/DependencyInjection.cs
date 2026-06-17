@@ -1,4 +1,6 @@
 using HotelReservation.Infrastructure.Persistence;
+using HotelReservation.Infrastructure.Security;
+using HotelReservation.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,10 @@ public static class DependencyInjection
             options.UseSqlServer(
                 configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(HotelReservationContext).Assembly.FullName)));
+
+        // Registrar servicios de seguridad
+        services.AddSingleton<IPasswordHasher, PasswordHasher>();
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 
         return services;
     }
