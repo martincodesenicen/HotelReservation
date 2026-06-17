@@ -16,6 +16,7 @@ public static class DependencyInjection
                 configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(HotelReservationContext).Assembly.FullName)));
 
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<HotelReservationContext>());
         // Registrar servicios de seguridad
         services.AddSingleton<IPasswordHasher, PasswordHasher>();
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
