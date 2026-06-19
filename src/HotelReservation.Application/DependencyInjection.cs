@@ -1,6 +1,7 @@
 using HotelReservation.Application.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using HotelReservation.Application.Hotels;
+using HotelReservation.Application.Rooms;
 using System.Reflection;
 using FluentValidation;
 
@@ -12,6 +13,7 @@ public static class DependencyInjection
     {
         services.AddScoped<IAuthenticationService, AuthenticationService>();
         services.AddScoped<IHotelService, HotelService>();
+        services.AddScoped<IRoomService, RoomService>();
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         return services;
