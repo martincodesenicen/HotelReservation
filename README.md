@@ -1,4 +1,4 @@
-# Hotel Reservation System API
+# Hotel Reservation API
 
 API REST para la gestión de hoteles, habitaciones y reservas desarrollada con .NET 8/.NET 9 siguiendo principios de Clean Architecture.
 
@@ -35,7 +35,7 @@ Expone los endpoints REST, configura la autenticación JWT y la documentación c
 ## Tecnologías utilizadas
 
 * C# 12
-* .NET 8 / .NET 9
+* .NET 10
 * ASP.NET Core Web API
 * Entity Framework Core
 * SQL Server
@@ -48,13 +48,13 @@ Expone los endpoints REST, configura la autenticación JWT y la documentación c
 ### Clonar el repositorio
 
 ```bash
-git clone https://github.com/your-username/HotelReservationSystem.git
-cd HotelReservationSystem
+git clone https://github.com/martincodesenicen/HotelReservation.git
+cd HotelReservation
 ```
 
 ### Configurar la conexión a la base de datos
 
-Editar `HotelReservationSystem.Api/appsettings.json`:
+Editar `HotelReservation.Api/appsettings.json`:
 
 ```json
 {
@@ -67,13 +67,13 @@ Editar `HotelReservationSystem.Api/appsettings.json`:
 ### Aplicar migraciones
 
 ```bash
-dotnet ef database update --project HotelReservationSystem.Infrastructure --startup-project HotelReservationSystem.Api
+dotnet ef database update --project HotelReservation.Infrastructure --startup-project HotelReservation.Api
 ```
 
 ### Ejecutar el proyecto
 
 ```bash
-dotnet run --project HotelReservationSystem.Api
+dotnet run --project HotelReservation.Api
 ```
 
 Swagger estará disponible en:
