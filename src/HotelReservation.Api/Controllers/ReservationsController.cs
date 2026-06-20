@@ -3,6 +3,7 @@ using FluentValidation;
 using HotelReservation.Application.Reservations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using HotelReservation.Api.Middlewares;
 
 namespace HotelReservation.Api.Controllers;
 
@@ -35,19 +36,8 @@ public class ReservationsController : ControllerBase
             return Unauthorized(new { message = "Usuario no válido." });
         }
 
-        try
-        {
-            var response = await _reservationService.CreateAsync(request, userId);
-            return Ok(response);
-        }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { message = ex.Message });
-        }
-        catch (InvalidOperationException ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        var response = await _reservationService.CreateAsync(request, userId);
+        return Ok(response);
     }
 
     [HttpGet("my-history")]

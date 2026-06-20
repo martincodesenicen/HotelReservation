@@ -2,7 +2,7 @@ using System.Text;
 using HotelReservation.Application;
 using HotelReservation.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
-// CAMBIO AQUÍ: Usamos el namespace nativo de Swashbuckle para mapear los objetos de configuración
+using HotelReservation.Api.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi;
 
@@ -75,6 +75,8 @@ builder.Services.AddControllers();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
