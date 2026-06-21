@@ -2,6 +2,8 @@
 
 API REST para la gestión de hoteles, habitaciones y reservas desarrollada con .NET 8/.NET 9 siguiendo principios de Clean Architecture.
 
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/4d097cf6-49e4-4243-99a1-578436cb4314" />
+
 ## Funcionalidades
 
 * Autenticación mediante JWT.
@@ -42,6 +44,44 @@ Expone los endpoints REST, configura la autenticación JWT y la documentación c
 * JWT Authentication
 * BCrypt.Net
 * FluentValidation
+
+## API Endpoints
+
+<img width="1081" height="601" alt="image" src="https://github.com/user-attachments/assets/0f08e7a9-5e72-4481-976a-a5e892cac139" />
+
+Los endpoints protegidos requieren un token JWT en el header `Authorization`:
+
+```text
+Authorization: Bearer <token>
+```
+
+### Auth (`/api/auth`)
+
+| Método | Endpoint             | Acceso  | Descripción                      |
+| ------ | -------------------- | ------- | -------------------------------- |
+| POST   | `/api/auth/register` | Público | Registrar un usuario.            |
+| POST   | `/api/auth/login`    | Público | Iniciar sesión y obtener un JWT. |
+
+### Hotels (`/api/hotels`)
+
+| Método | Endpoint      | Acceso            | Descripción                |
+| ------ | ------------- | ----------------- | -------------------------- |
+| GET    | `/api/hotels` | Público           | Obtener todos los hoteles. |
+| POST   | `/api/hotels` | HotelOwner, Admin | Crear un hotel.            |
+
+### Rooms (`/api/hotels/{hotelId}/rooms`)
+
+| Método | Endpoint                      | Acceso            | Descripción                           |
+| ------ | ----------------------------- | ----------------- | ------------------------------------- |
+| GET    | `/api/hotels/{hotelId}/rooms` | Público           | Obtener las habitaciones de un hotel. |
+| POST   | `/api/hotels/{hotelId}/rooms` | HotelOwner, Admin | Crear una habitación para un hotel.   |
+
+### Reservations (`/api/reservations`)
+
+| Método | Endpoint                       | Acceso      | Descripción                                   |
+| ------ | ------------------------------ | ----------- | --------------------------------------------- |
+| POST   | `/api/reservations`            | Autenticado | Crear una reserva.                            |
+| GET    | `/api/reservations/my-history` | Autenticado | Obtener el historial de reservas del usuario. |
 
 ## Configuración
 
