@@ -1,6 +1,6 @@
 # Hotel Reservation API
 
-API REST para la gestión de hoteles, habitaciones y reservas desarrollada con .NET 8/.NET 9 siguiendo principios de Clean Architecture.
+API REST para la gestión de hoteles, habitaciones y reservas desarrollada con .NET 10 siguiendo principios de Clean Architecture.
 
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/4d097cf6-49e4-4243-99a1-578436cb4314" />
 
