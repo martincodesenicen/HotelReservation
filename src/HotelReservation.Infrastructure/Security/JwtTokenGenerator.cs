@@ -25,14 +25,14 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        // Agregamos Claims (información encriptada dentro del token)
+        // Claims
         var claims = new[]
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.GivenName, user.FirstName),
             new Claim(ClaimTypes.Surname, user.LastName),
-            new Claim(ClaimTypes.Role, user.Role.ToString()) // Crucial para la autorización por roles posterior
+            new Claim(ClaimTypes.Role, user.Role.ToString()) // autorización por roles
         };
 
         var token = new JwtSecurityToken(

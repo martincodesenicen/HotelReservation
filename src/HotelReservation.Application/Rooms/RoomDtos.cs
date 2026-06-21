@@ -2,7 +2,7 @@ using HotelReservation.Domain.Enums;
 
 namespace HotelReservation.Application.Rooms;
 
-// Request para crear la habitación (El HotelId vendrá por la URL en la API)
+// Request para crear la habitación
 public record CreateRoomRequest(string RoomNumber, int Capacity, decimal PricePerNight, RoomType RoomType);
 
 // Response de salida

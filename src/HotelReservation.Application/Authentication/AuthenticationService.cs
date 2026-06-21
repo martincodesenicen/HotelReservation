@@ -26,7 +26,7 @@ public class AuthenticationService : IAuthenticationService
         var userExists = await _context.Users.AnyAsync(u => u.Email == request.Email);
         if (userExists)
         {
-            throw new Exception("Email is already registered."); // Temporal: Luego usaremos Global Exception Handling
+            throw new Exception("Email is already registered.");
         }
 
         // 2. Hashear password
@@ -43,7 +43,7 @@ public class AuthenticationService : IAuthenticationService
             Role = request.Role
         };
 
-        // 4. Persistir en Base de Datos
+        // 4. Base de Datos
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
 

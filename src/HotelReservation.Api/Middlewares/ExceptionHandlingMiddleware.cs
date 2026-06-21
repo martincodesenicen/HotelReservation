@@ -23,7 +23,7 @@ public class ExceptionHandlingMiddleware
         }
         catch (Exception ex)
         {
-            // Si algo falla en cualquier capa inferior (Application, Infrastructure), cae acá
+            // Si algo falla en cualquier capa inferior, cae acá
             _logger.LogError(ex, "Ocurrió una excepción no controlada: {Message}", ex.Message);
             await HandleExceptionAsync(context, ex);
         }

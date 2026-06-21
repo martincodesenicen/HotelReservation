@@ -49,7 +49,7 @@ public class RoomService : IRoomService
 
     public async Task<IEnumerable<RoomResponse>> GetRoomsByHotelIdAsync(Guid hotelId)
     {
-        // Validamos si el hotel existe antes de listar habitaciones
+        // Validar si el hotel existe antes de listar habitaciones
         var hotelExists = await _context.Hotels.AnyAsync(h => h.Id == hotelId);
         if (!hotelExists)
         {

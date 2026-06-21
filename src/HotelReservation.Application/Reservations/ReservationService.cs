@@ -26,7 +26,7 @@ public class ReservationService : IReservationService
             throw new KeyNotFoundException("La habitación especificada no existe.");
         }
 
-        // 2. ALGORITMO: Verificar si hay superposición de fechas
+        // 2. Verificar si hay superposición de fechas
         var hasOverlap = await _context.Reservations
             .AnyAsync(res => res.RoomId == request.RoomId &&
                              res.Status != ReservationStatus.Cancelled &&
